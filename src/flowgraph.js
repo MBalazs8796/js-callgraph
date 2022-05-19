@@ -53,7 +53,9 @@ function addIntraproceduralFlowGraphEdges(ast, flow_graph) {
                     break;
 
                 case 'CatchClause':
-                    flow_graph.addEdge(unknownVertex(), varVertex(nd.param));
+                    if(nd.param){
+                        flow_graph.addEdge(unknownVertex(), varVertex(nd.param));
+                    }
                     break;
 
                 // R3
@@ -222,6 +224,7 @@ function vertexFor(nd) {
 // variable vertices are cached at the variable declarations
 function varVertex(nd) {
     if (nd.type !== 'Identifier') {
+        fs.writeFileSync('./asd.json', JSON.stringify(nd, null, 4))
         throw new Error("invalid variable vertex");
     }
 
