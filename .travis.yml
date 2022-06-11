@@ -8,7 +8,7 @@ addons:
 node_js:
   - 14
 before_install:
-  - python3.7 --version
+  - sudo apt-key list | grep -A 1 expired 
 install:
   - npm install
 script:
