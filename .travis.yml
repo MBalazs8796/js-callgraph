@@ -1,15 +1,11 @@
 language: node_js
-dist: xenial
+dist: bionic
 addons:
   apt:
     sources:
       - deadsnakes
-    packages:
-      - python3.8
 node_js:
   - 14
-before_install:
-  - sudo apt-key list | grep -A 1 expired 
 install:
   - npm install
 script:
